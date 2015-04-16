@@ -1,0 +1,4 @@
+<h1>Give it a Try</h1>
+<p><%= @puzzle.clue%></p>
+<%= link_to "Delete", :puzzle_destroy, method: :delete, data: {confirm: "Are you sure you want to delete this clue?"} %>
+<%= link_to "Edit Your WordyGurdy", edit_puzzle_path %>

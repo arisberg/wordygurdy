@@ -1,0 +1,9 @@
+<h1>Add a WordyGurdy</h1>
+
+<%= form_for @puzzle do |f| %>
+    <%= f.label :clue %>
+    <%= f.text_field :clue %>
+    <%= f.label :answer %>
+    <%= f.text_field :answer %>
+    <%= f.submit "Add your WordyGurdy" %>
+<% end %>

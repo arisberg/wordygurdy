@@ -1,0 +1,18 @@
+<h1>Sign Up for Wordy Gurdy</h1>
+<ul></ul>
+    <%= form_for (@user) do |f| %>
+    <li>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+    </li>
+    <li>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </li>
+    <li>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </li>
+    <li><%= f.submit "Submit" %></li>
+    <% end %>
+</ul>

@@ -1,0 +1,22 @@
+<h1>Wordy Gurdy's</h1>
+<p>A puzzle game for friends</p>
+
+<ul>
+    <% @puzzles.each do |p| %>
+    <li>
+        <strong><%= p.clue%></strong>
+    </li>
+    <li>
+        <%= form_tag('/puzzles', method: 'get') do %>
+        <%= text_field_tag :guess %>
+        <%= submit_tag "Submit" %>
+    </li>
+    <li>
+        <%= link_to "Delete", p, method: :delete, data: {confirm: "Are you sure you want to delete this clue?"} %>
+        <%= link_to "Edit Your WordyGurdy", edit_puzzle_path(p) %>
+        <% end %>
+    </li>
+    <% end %>
+</ul>
+
+<%= link_to "Add a WordyGurdy", puzzles_new_path %>

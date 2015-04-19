@@ -1,14 +1,17 @@
 class PuzzlesController < ApplicationController
-  before_action :require_user, except: [:index]
+  before_action :require_user
 
   def index
-    @puzzles = Puzzle.where(solved: false)
+    @puzzles = Puzzle.all
   end
 
   def answer
+     @user = current_user
      @guess = params[:guess]
      @puzzle = Puzzle.find(params[:id])
         if @guess == @puzzle.answer
+          @user.score += 1
+          @user.save
           @puzzle.solved = true
           @puzzle.save
         end
@@ -26,6 +29,7 @@ class PuzzlesController < ApplicationController
   def create
     @puzzle = Puzzle.new(puzzle_params)
     @puzzle.solved = false
+    @puzzle.user_id = current_user.id
         if @puzzle.save
             redirect_to puzzles_path
         else

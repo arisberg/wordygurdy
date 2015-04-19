@@ -1,12 +1,17 @@
 <h1><%= @puzzle.clue%></h1>
 
-<% if @puzzle.solved == true %>
-<h2> <%= @puzzle.answer %> !!!</h2>
-<h2>NICE! You solved it!</h2>
-<% else %>
-<h2>Sorry, that's not the answer</h2>
-<%= link_to "Try again?", puzzles_path, class: "btn btn-default" %>
-<% end %>
+<div class="well">
+        <% if @puzzle.solved == true %>
+        <h2> <%= @puzzle.answer %>!</h2>
+        <h2>NICE! You solved it!</h2>
+        <%= image_tag("skelly.gif") %>
+        <% else %>
+        <h2>Sorry, that's not the answer</h2>
+        <%= image_tag("facepalm.gif") %>
+        <br/>
+        <%= link_to "Try again?", puzzles_path, class: "btn btn-default" %>
+        <% end %>
+</div>
 
 
 

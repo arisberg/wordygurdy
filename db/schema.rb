@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417161535) do
+ActiveRecord::Schema.define(version: 20150419091102) do
 
   create_table "puzzles", force: :cascade do |t|
     t.string   "clue"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150417161535) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "solved"
+    t.integer  "user_id"
   end
+
+  add_index "puzzles", ["user_id"], name: "index_puzzles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -28,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150417161535) do
     t.string   "role"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "score"
   end
 
 end

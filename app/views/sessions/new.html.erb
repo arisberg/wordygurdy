@@ -1,9 +1,36 @@
-<h1>Log In</h1>
+<div class="jumbotron">
+<h1>Wordy Gurdy<small>  A puzzle game for friends</small></h1>
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+  How to Play
+</button>
+</div>
 
+<h1>Please login to start playing</h1>
+<div class="form-group"></div>
 <%= form_tag('/login', method: :post) do %>
-    <p>Username: <%= text_field_tag :username %></p>
-    <p>Password: <%= password_field_tag :password %></p>
-    <%= submit_tag "login" %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username, nil,  class: "form-control" %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password, nil,  class: "form-control" %>
+    <%= submit_tag "Login", class: "btn btn-default" %>
 <% end %>
- <p> OR </p>
- <%= link_to "Sign Up", '/signup', class: "btn btn-default" %>
+<%= link_to "Sign Up", '/signup', class: "btn btn-default" %>
+</div>
+
+ <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Rules</h4>
+      </div>
+      <div class="modal-body">
+        <p>The name of the game is Wordy Gurdy.  You get a clue, synonyms of the two word answer to the puzzle. The answer to a Wordy Gurdy is an adjective and a noun that rhyme, for example Pale Whale or Simple Dimple.  That's about it!  Try and solve the puzzles you see here, added by people around the world.  Once you get the hang of it, feel free to add your own Wordy Gurdys!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

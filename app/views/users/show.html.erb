@@ -1,2 +1,10 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Hi, <%= @user.username %></h1>
+
+<h2>Your Wordy Gurdys</h2>
+<% @user.puzzles.each do |p| %>
+    <div class = "well">
+        <h3><%= p.clue %></h3>
+    </div>
+<% end %>
+    <h3>You've solved <%= @user.score %> puzzle(s)</h3>
+

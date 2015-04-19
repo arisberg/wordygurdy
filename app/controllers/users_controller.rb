@@ -5,11 +5,16 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @user.score = 0
         if @user.save
             redirect_to('/puzzles')
         else
             redirect_to('/signup')
         end
+    end
+
+    def show
+        @user = current_user
     end
 
     private

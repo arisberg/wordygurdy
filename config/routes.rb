@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/userhome' => "users#show"
+  get '/leaders' => 'users#leaders'
   root 'puzzles#index'
   get '/answer' => 'puzzles#answer'
   get '/puzzles' => 'puzzles#index'

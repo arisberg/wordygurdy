@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  def new
+    def new
         @user = User.new
+    end
+
+    def leaders
+        @users = User.order(score: :desc)
     end
 
     def create

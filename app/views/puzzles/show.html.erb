@@ -1,17 +1,23 @@
 <h1><%= @puzzle.clue%></h1>
 
-<div class="well">
+
         <% if @puzzle.solved == true %>
+        <div class="well green text-center">
         <h2> <%= @puzzle.answer %>!</h2>
         <h2>NICE! You solved it!</h2>
-        <%= image_tag("skelly.gif") %>
+        <%= image_tag("skelly.gif", class: "result_image") %>
+        <br/>
+        <%= link_to "Solve some more", puzzles_path, class: "btn btn-default" %>
+        </div>
         <% else %>
+        <div class="well tan text-center">
         <h2>Sorry, that's not the answer</h2>
-        <%= image_tag("facepalm.gif") %>
+        <%= image_tag("facepalm.gif", class: "result_image") %>
         <br/>
         <%= link_to "Try again?", puzzles_path, class: "btn btn-default" %>
+        </div>
         <% end %>
-</div>
+
 
 
 

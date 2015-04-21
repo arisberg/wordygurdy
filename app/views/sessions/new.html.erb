@@ -1,21 +1,29 @@
-<div class="jumbotron">
-<h1>Wordy Gurdy<small>  A puzzle game for friends</small></h1>
-<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+<div class="jumbotron green">
+<h1 class="text-center">Wordy Gurdy<small class="whitetext">  A word game</small></h1>
+<div class="text-center">
+<button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
   How to Play
 </button>
 </div>
-
-<h1>Please login to start playing</h1>
-<div class="form-group"></div>
-<%= form_tag('/login', method: :post) do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username, nil,  class: "form-control" %>
-    <%= label_tag :password %>
-    <%= password_field_tag :password, nil,  class: "form-control" %>
-    <%= submit_tag "Login", class: "btn btn-default" %>
-<% end %>
-<%= link_to "Sign Up", '/signup', class: "btn btn-default" %>
 </div>
+
+<div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center">Please login to start playing</h1>
+    <h2 class = "text-center">If you don't have an account, create one here!</h2>
+    <div class= "text-center"><%= link_to "Sign Up", '/signup', class: "btn btn-default" %></div>
+    <div class="form-group">
+        <%= form_tag('/login', method: :post) do %>
+            <%= label_tag :username%>
+            <%= text_field_tag :username, nil,  class: "form-control" %>
+            <br/>
+            <%= label_tag :password %>
+            <%= password_field_tag :password, nil,  class: "form-control" %>
+            <br/>
+            <%= submit_tag "Login", class: "btn btn-default" %>
+        <% end %>
+    </div>
+</div>
+
 
  <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -26,7 +34,9 @@
         <h4 class="modal-title" id="myModalLabel">Rules</h4>
       </div>
       <div class="modal-body">
-        <p>The name of the game is Wordy Gurdy.  You get a clue, synonyms of the two word answer to the puzzle. The answer to a Wordy Gurdy is an adjective and a noun that rhyme, for example Pale Whale or Simple Dimple.  That's about it!  Try and solve the puzzles you see here, added by people around the world.  Once you get the hang of it, feel free to add your own Wordy Gurdys!
+        <p>The name of the game is Wordy Gurdy.  You get a clue, synonyms of the two word answer to the puzzle. The answer to a Wordy Gurdy is an adjective and a noun that rhyme, for example Pale Whale or Simple Dimple.  That's about it!  Try and solve the puzzles you see here, added by people around the world.  Once you get the hang of it, feel free to add your own Wordy Gurdys!</p>
+        <p>Scoring:</p>
+        <p>Your score starts at 0.  When you solve a Wordy Gurdy, you gain one point.  You also gain a point when someone fails to solve your Wordy Gurdy.  However, if you fail to solve someone's puzzle not only do they gain a point, you lose a point too.  So, be sure you know the answer if you take a guess or you could end up negative!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

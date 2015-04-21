@@ -1,0 +1,6 @@
+
+<h1>Leader Board</h1>
+
+<% @users.each do |user| %>
+    <h3><%= user.username %> - <%= user.score %> points</h3>
+<% end %>

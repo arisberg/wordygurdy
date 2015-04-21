@@ -1,7 +1,56 @@
 // Place all the styles related to the puzzles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
+.container{
+    font-family: "Raleway";
+}
 
 p {
-    font-size: 2em;
+    font-size: 1.5em;
+}
+
+body {
+    background-image: url('contemporary_china.png');
+    font-family: "cafeandbrew";
+}
+
+.whitetext {
+    color: white;
+}
+
+.well.tan {
+    background-color: #e8e0c4;
+    }
+
+.well.red {
+    background-color: #FF4444;
+}
+
+.well.green {
+    background-color: #cbdeab;
+}
+
+.well.white {
+    background-color: white;
+}
+
+.well.brown {
+    background-color: #bc8b76;
+}
+
+.jumbotron.green {
+    background-color: #cbdeab;
+}
+
+.jumbotron.brown {
+    background-color: #bc8b76;
+}
+
+.result_image {
+    margin:10px;
+    height: 100px;
+    width: 150px;
+    border-radius: 25px;
 }

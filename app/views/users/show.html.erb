@@ -1,10 +1,11 @@
 <h1>Hi, <%= @user.username %></h1>
 
+<h2>Score: <%= @user.score %></h2>
+
 <h2>Your Wordy Gurdys</h2>
 <% @user.puzzles.each do |p| %>
-    <div class = "well">
+    <div class = "well tan">
         <h3><%= p.clue %></h3>
+        <h4>This Wordy Gurdy has been solved <%= p.score %> time(s) </h4>
     </div>
 <% end %>
-    <h3>You've solved <%= @user.score %> puzzle(s)</h3>
-

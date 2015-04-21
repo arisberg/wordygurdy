@@ -7,13 +7,19 @@ class PuzzlesController < ApplicationController
 
   def answer
      @user = current_user
-     @guess = params[:guess]
+     @guess = params[:guess].downcase
      @puzzle = Puzzle.find(params[:id])
         if @guess == @puzzle.answer
           @user.score += 1
           @user.save
           @puzzle.solved = true
+          @puzzle.score += 1
           @puzzle.save
+        else
+          @user.score -= 1
+          @puzzle.user.score += 1
+          @puzzle.user.save
+          @user.save
         end
         redirect_to puzzle_path(@puzzle)
   end
@@ -29,6 +35,8 @@ class PuzzlesController < ApplicationController
   def create
     @puzzle = Puzzle.new(puzzle_params)
     @puzzle.solved = false
+    @puzzle.score = 0
+    @puzzle.answer = @puzzle.answer.downcase
     @puzzle.user_id = current_user.id
         if @puzzle.save
             redirect_to puzzles_path
@@ -45,6 +53,7 @@ class PuzzlesController < ApplicationController
         @puzzle = Puzzle.find(params[:id])
 
         if @puzzle.update_attributes(puzzle_params)
+            @puzzle.answer
             redirect_to puzzles_path
         else
             render "edit"

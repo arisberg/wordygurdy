@@ -11,23 +11,25 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-    <div class="nav navbar-nav">
-        <%= link_to "Home", puzzles_path%>
-        <%= link_to "Create a Wordy Gurdy", puzzles_new_path%>
-        <%= link_to "Leader Board", '/leaders' %>
-        <% if current_user %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Home", puzzles_path, class: 'navbar-link' %></li>
+          <li><%= link_to "Create a Wordy Gurdy", puzzles_new_path, class: 'navbar-link'%></li>
+          <li><%= link_to "Leader Board", '/leaders', class: 'navbar-link' %></li>
+        </ul>
+    </div>
+    <div class="pull-right">
+        <ul class="nav navbar-nav">
+          <% if current_user %>
+          <li><p class="navbar-text">Signed in as <strong> <%= current_user.username %></strong></p></li>
+          <li><%= link_to "Profile", '/userhome'%></li>
+          <li><%= link_to "Logout", '/logout'%></li>
+</li>
 
-
-          <p class="navbar-text">Signed in as <strong> <%= current_user.username %></strong></p>
-          <%= link_to "Profile", '/userhome'%>
-          <%= link_to "Logout", '/logout'%>
-
-
-        <% else %>
-        <li><%= link_to "Login", '/login'%></li>
-        <li><%= link_to "Sign Up", '/signup'%></li>
-        <% end %>
-    </ul>
+          <% else %>
+          <li><%= link_to "Login", '/login'%></li>
+          <li><%= link_to "Sign Up", '/signup'%></li>
+          <% end %>
+        </ul>
     </div>
   </div>
 </nav>

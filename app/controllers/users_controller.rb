@@ -13,6 +13,7 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to('/puzzles')
         else
+            flash[:error] = @user.errors.full_messages.to_sentence
             redirect_to('/signup')
         end
     end

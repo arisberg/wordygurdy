@@ -1,6 +1,7 @@
 
 <div class="col-md-6 col-md-offset-3">
 <h1>Add a WordyGurdy</h1>
+<%= flash[:error] %>
 <div class="form-group">
         <%= form_for @puzzle do |f| %>
             <%= f.label :clue %>

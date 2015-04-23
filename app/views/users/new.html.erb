@@ -1,4 +1,5 @@
 <h1>Sign Up for Wordy Gurdy</h1>
+<p><%= flash[:error] %></p>
 <div class="form-group">
     <%= form_for (@user) do |f| %>
 
@@ -14,6 +15,8 @@
         <%= f.label :password %>
         <%= f.password_field :password, class: "form-control" %>
         <br/>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
         <%= f.submit "Submit", class: "btn btn-default" %></li>
     <% end %>
     </div>

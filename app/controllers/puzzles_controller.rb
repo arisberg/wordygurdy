@@ -2,7 +2,8 @@ class PuzzlesController < ApplicationController
   before_action :require_user
 
   def index
-    @puzzles = Puzzle.all
+    @user = current_user.id
+    @puzzles = Puzzle.where.not(user_id: @user)
   end
 
   def answer
@@ -34,13 +35,10 @@ class PuzzlesController < ApplicationController
 
   def create
     @puzzle = Puzzle.new(puzzle_params)
-    @puzzle.solved = false
-    @puzzle.score = 0
-    @puzzle.answer = @puzzle.answer.downcase
-    @puzzle.user_id = current_user.id
         if @puzzle.save
             redirect_to puzzles_path
         else
+            flash[:error] = @puzzle.errors.full_messages.to_sentence
             render "new"
         end
   end

@@ -5,6 +5,7 @@
 <div class = "well tan">
 <%= form_for @puzzle do |f| %>
     <%= f.text_field :clue %>
+    <%= f.text_field :answer %>
     <%= f.submit "Confirm", class: "btn btn-success" %>
 <% end %>
 </div>

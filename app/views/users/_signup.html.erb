@@ -1,0 +1,20 @@
+<div class="form-group">
+    <%= form_for (@user) do |f| %>
+
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control" %>
+        <br/>
+
+
+        <%= f.label :email%>
+        <%= f.email_field :email, class: "form-control" %>
+        <br/>
+
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control" %>
+        <br/>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: "form-control" %>
+        <%= f.submit "Submit", class: "btn btn-default" %></li>
+    <% end %>
+    </div>

@@ -3,26 +3,14 @@ class PuzzlesController < ApplicationController
 
   def index
     @user = current_user.id
-    @puzzles = Puzzle.where.not(user_id: @user)
+    @puzzles = current_user.unsolved_puzzles.where.not(user_id: @user)
   end
 
   def answer
-     @user = current_user
-     @guess = params[:guess].downcase
-     @puzzle = Puzzle.find(params[:id])
-        if @guess == @puzzle.answer
-          @user.score += 1
-          @user.save
-          @puzzle.solved = true
-          @puzzle.score += 1
-          @puzzle.save
-        else
-          @user.score -= 1
-          @puzzle.user.score += 1
-          @puzzle.user.save
-          @user.save
-        end
-        redirect_to puzzle_path(@puzzle)
+     guess = params[:guess].downcase
+     puzzle = Puzzle.find(params[:id])
+     puzzle.solve(current_user, guess)
+     redirect_to puzzle_path(puzzle)
   end
 
   def new
@@ -35,6 +23,7 @@ class PuzzlesController < ApplicationController
 
   def create
     @puzzle = Puzzle.new(puzzle_params)
+    @puzzle.setup_id(current_user)
         if @puzzle.save
             redirect_to puzzles_path
         else
@@ -60,8 +49,10 @@ class PuzzlesController < ApplicationController
 
   def destroy
     @puzzle = Puzzle.find(params[:id])
+    @solved = SolvedPuzzle.where(puzzle_id: @puzzle.id)
+    @solved.destroy_all
     @puzzle.destroy
-    redirect_to('/puzzles')
+    redirect_to('/userhome')
   end
 
   private

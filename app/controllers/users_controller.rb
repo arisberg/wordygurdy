@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         @user.score = 0
         if @user.save
+            session[:user_id] = @user.id
             redirect_to('/puzzles')
         else
             flash[:error] = @user.errors.full_messages.to_sentence

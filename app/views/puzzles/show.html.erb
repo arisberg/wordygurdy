@@ -2,18 +2,18 @@
 
 
         <% if @puzzle.solved == true %>
-        <div class="well green text-center">
+        <div class="well blue text-center">
         <h2> <%= @puzzle.answer %>!</h2>
         <h2>NICE! You solved it!</h2>
-        <%= image_tag("skelly.gif", class: "result_image") %>
+        <%= image_tag("win/#{rand(5)}.gif", class: "result_image") %>
         <br/>
         <h2>You've gained 1 point. Your score is now <%= current_user.score %>.</h2>
         <%= link_to "Solve some more", puzzles_path, class: "btn btn-default" %>
         </div>
         <% else %>
-        <div class="well tan text-center">
+        <div class="well darkblue text-center">
         <h2>Sorry, that's not the answer</h2>
-        <%= image_tag("facepalm.gif", class: "result_image") %>
+        <%= image_tag("lose/#{rand(5)}.gif", class: "result_image") %>
         <br/>
         <h2>You lose 1 point.  Your score is now <%= current_user.score %>.</h2>
         <%= link_to "Try again?", puzzles_path, class: "btn btn-default" %>

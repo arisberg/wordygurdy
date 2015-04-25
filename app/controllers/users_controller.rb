@@ -1,12 +1,16 @@
 class UsersController < ApplicationController
+
+    # Adds new user
     def new
         @user = User.new
     end
 
+    # Lists all users by score
     def leaders
         @users = User.order(score: :desc)
     end
 
+    # Creates new user
     def create
         @user = User.new(user_params)
         @user.score = 0
@@ -19,6 +23,7 @@ class UsersController < ApplicationController
         end
     end
 
+    # Shows current user
     def show
         @user = current_user
     end

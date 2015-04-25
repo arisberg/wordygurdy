@@ -6,16 +6,22 @@ class Puzzle < ActiveRecord::Base
 
         before_create :setup
 
+        # On Puzzle create sets initial values
         def setup
             self.solved = false
             self.score = 0
             self.answer = self.answer.downcase
         end
 
+        # On Puzzle create sets user_id to current_user id
         def setup_id(current_user)
             self.user_id = current_user.id
         end
 
+        # Compares entered guess to stored answer
+        # Creates solvedpuzzle object
+        # Increments user score and puzzle score by 1 if correct
+        # If incorrect, decrements user score by one, increments Puzzle creator score by 1
         def solve(user, guess)
             if guess == self.answer
               solvedpuzzle = SolvedPuzzle.new
@@ -32,6 +38,6 @@ class Puzzle < ActiveRecord::Base
               self.user.score += 1
               self.user.save
               user.save
+          end
         end
-    end
 end

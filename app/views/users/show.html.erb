@@ -1,10 +1,16 @@
 <h1>Hi, <%= @user.username %></h1>
 
 <h2>Score: <%= @user.score %></h2>
+<h2>Rank: <%= @user.role %></h2>
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow= '<% @user.score %>'
+  aria-valuemin="0" aria-valuemax="100" style="width:<%= @user.progress %>%">
+  </div>
+</div>
 
 <h2>Your Wordy Gurdys</h2>
 <% @user.puzzles.each do |p| %>
-    <div class = "well tan">
+    <div class = "well blue">
         <h3><%= p.clue %></h3>
         <h4>This Wordy Gurdy has been solved <%= p.score %> time(s) </h4>
         <%= link_to "", p, method: :delete, data: {confirm: "Are you sure you want to delete this clue?"}, class: "btn btn-danger glyphicon glyphicon-remove" %>

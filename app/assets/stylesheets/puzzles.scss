@@ -2,13 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url(http://fonts.googleapis.com/css?family=Asap:400,700italic);
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
 
 .container{
     font-family: "Raleway";
 }
 
+.title {
+    margin-bottom: 30px;
+}
 
 .logo {
+    margin:50px;
     width: 50px;
     height:50px;
 }
@@ -19,7 +25,6 @@ p.red {
 
 body {
     background-image: url('contemporary_china.png');
-    font-family: "cafeandbrew";
 }
 
 .whitetext {
@@ -27,8 +32,16 @@ body {
 }
 
 .well.tan {
-    background-color: #e8e0c4;
+    background-color: #FFB652;
     }
+
+.well.blue {
+    background-color: #94C7E5;
+}
+
+.well.darkblue {
+    background-color: #A4DDFF;
+}
 
 .well.red {
     background-color: #FF4444;
@@ -46,17 +59,19 @@ body {
     background-color: #bc8b76;
 }
 
-.jumbotron.green {
-    background-color: #cbdeab;
+.jumbotron.blue {
+    margin-top:30px;
+    background-color: #7BA6BF;
+    font-family: 'Bree Serif', sans-serif;
 }
 
 .jumbotron.brown {
-    background-color: #bc8b76;
+    background-color: #B26700;
 }
 
 .result_image {
     margin:10px;
-    height: 100px;
-    width: 150px;
+    height: 200px;
+    width: 350px;
     border-radius: 25px;
 }
